@@ -1,19 +1,12 @@
-
 #!/usr/bin/env bash
-
-
 
 mkdir -p Afbeeldingen/Vakantie
 
-
-
-list="$(find "$l" -regex "\.*\.\(jpg\|png\)"| grep vakantie)"
-
+list="$(find -regex ".*\.\(jpg\|png\)"| grep "vakantie")"
+echo $list
 
 for i in $list; do
-	
 	cp $i Afbeeldingen/Vakantie
 done
-
 
 echo Klaar
