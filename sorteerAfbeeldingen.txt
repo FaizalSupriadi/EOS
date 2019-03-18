@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+mkdir -p Afbeeldingen
+
+list="$(find "$l" -regex "\.*\.\(jpg\|png\)")"
+
+for i in $list; do
+	cp $i Afbeeldingen 
+done
+
+echo Gesorteerd
+
+
+#!/usr/bin/env bash
+
+mkdir -p Afbeeldingen/Vakantie
+
+list="$(find "$l" -regex "\.*\.\(jpg\|png\)"| grep vakantie)"
+
+for i in $list; do
+	cp $i Afbeeldingen/Vakantie
+done
+
+echo Klaar
+
+#!/usr/bin/env bash
+
