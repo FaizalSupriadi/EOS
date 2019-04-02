@@ -1,0 +1,25 @@
+#! /usr/bin/env bash
+
+touch $l.txt
+read -p "Username: " username
+
+if [ "$username"  =  "" ]; then
+	username="whoami"
+fi
+
+while true; do
+	read -s -p "Password: " firstPass
+	echo
+	read -s -p "Repeat password: " repPass
+	echo
+	if [ "$firstPass" = "$repPass" ]; then
+		if ( ( ${#firstPass} >= 8 ) ) && [ [ $firstPass =~ [0-9] ] ] && [ [ $firstPass =~  [a-z] ] ] && [ [ $firstPass =~  [A-Z] ] ] ; then
+				echo "$username" "$( echo -n " $firstPass" | md5sum )" >> $l.txt 
+		break
+	else
+			echo WW moet miniimaal 1 hoofletter, kleine letter en een cijfer. Het moet ook 8 tekens lang zijn.
+		fi
+	fi
+done
+
+echo Goedendag "$username" !
