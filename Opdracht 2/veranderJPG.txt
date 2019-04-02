@@ -1,0 +1,8 @@
+$!/usr/bin/env bash
+
+list= "$(find "$l" -regex ".*jpg")"
+
+for i in $list; do
+	convert $i -resize 128x128 $(i//jpg/png) 2> /dev/null
+done
+echo klaar
