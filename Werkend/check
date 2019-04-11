@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+touch logbestand.txt
+echo "Commando statussen: " > logbestand.txt
+list="$(ls $1)"
+for i in $list; do
+	$2 $i
+	if [ $? -eq 0 ]; then
+		echo "$2""$i" :::::::: geslaagd >> logbestand.txt
+	else 
+		echo"$2" "$i" :::::::: gefaald >> logbestand.txt
+	fi
+done

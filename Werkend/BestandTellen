@@ -1,0 +1,24 @@
+#! /usr/bin/env bash
+
+tel1=0
+tel2=0
+tel3=0
+tel4=0
+tel5=0
+tel6=0
+
+lijst="$(ls -als "$1")"
+for i in $lijst; do
+	case $i in
+		*$2*) ((tel1++));;
+		*$3*) ((tel2++));;
+		*$4*) ((tel3++));;
+		*$5*) ((tel4++));;
+		*$6*) ((tel5++));;
+		*$7*) ((tel6++));;
+		*) ;;
+	esac
+done
+for ((i=1;i<=$#; i++)); do
+	eval "echo \" \$$i\"  komt \" \$tel$i\"  keer voor." 
+done

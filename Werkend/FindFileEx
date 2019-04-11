@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+list="$(ls -als "$1" )"
+read -p "Welke file zoek je?" file
+for i in $list; do
+	if [ "$i" = "$file" ]; then
+		echo Gevonden
+		exit 1
+	fi
+done
+
+echo Niet gevonden
+

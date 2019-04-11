@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+mkdir -p Afbeeldingen
+
+list="$(find  -regex ".*\.\(jpg\|png\)")"
+
+for i in $list; do
+	cp $i Afbeeldingen 
+done
+
+echo Sorteren is klaar
